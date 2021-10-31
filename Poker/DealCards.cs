@@ -81,25 +81,25 @@ namespace Poker
             int y = 1;// y позиция курсора. Её мы перемещаем вврех-вниз
 
             //отображаем руку игрока
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("PLAYER'S HAND");
             for (int i = 0; i < 5; i++) {
 
-                DrawCards.DrawCardOutline(x, y);
-                DrawCards.DrawCardSuitValue(sortedPlayerHand[i], x, y);
+                DrawCards.DrawCard(sortedPlayerHand[i], x, y);
+                //DrawCards.DrawCardSuitValue(sortedPlayerHand[i], x, y);
                 x++;//движение вправо
             }
             y = 15; //опускаем курсор, для того, чтобы карты компьютера вырисовывались ниже
 
             x = 0;
-            Console.SetCursorPosition(x, 14);
+            Console.SetCursorPosition(x, 13);
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("COMPUTER'S HAND");
+            Console.WriteLine("\nCOMPUTER'S HAND");
             for (int i = 5; i < 10; i++)
             {
 
-                DrawCards.DrawCardOutline(x, y);
-                DrawCards.DrawCardSuitValue(sortedComputerHand[i-5], x, y);
+                DrawCards.DrawCard(sortedComputerHand[i - 5], x, y);
+              //  DrawCards.DrawCardSuitValue(sortedComputerHand[i-5], x, y);
                 x++;//движение вправо
             }
 
@@ -117,35 +117,53 @@ namespace Poker
             Hand playerHand = playerHandEvaluator.EvaluateHand();
             Hand computerHand = computerHandEvaluator.EvaluateHand();
 
-            Console.WriteLine("\n\n\n\n\nPlayer's Hand: " + playerHand);
-            Console.WriteLine("\n\n\n\n\nComputer's Hand: " + computerHand);
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("\n\nPlayer's Hand: " + playerHand);
+            Console.WriteLine("\nComputer's Hand: " + computerHand + "\n\n");
 
             //
             if (playerHand > computerHand) {
 
+                Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("PLAYER WINS");
 
             }
             else if (playerHand < computerHand)
             {
 
+                Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("COMPUTER WINS");
 
             }
             else { //если руки равны
-            
+
                 //для начала рассмотрим у кого комбинация старше
                 if (playerHandEvaluator.HandValues.Total > computerHandEvaluator.HandValues.Total)
+                {
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("PLAYER WINS");
+                }
                 else if (playerHandEvaluator.HandValues.Total < computerHandEvaluator.HandValues.Total)
+                {
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("COMPUTER WINS");
+                }
                 //если комбинации одинаковые - смотрим по старшей карте
                 else if (playerHandEvaluator.HandValues.HighCard > computerHandEvaluator.HandValues.HighCard)
+                {
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("PLAYER WINS");
+                }
                 else if (playerHandEvaluator.HandValues.HighCard < computerHandEvaluator.HandValues.HighCard)
+                {
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("COMPUTER WINS");
+                }
                 else
+                {
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("DRAW, YOU BOTH LOSERS!");
+                }
 
             }
 

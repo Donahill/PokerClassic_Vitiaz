@@ -10,13 +10,15 @@ namespace Poker
 
         static void Main(string[] args) {
 
-            Console.BackgroundColor = ConsoleColor.Gray;
+            
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.SetWindowSize(65, 40); 
             //уберём скроллеры по бокам, задав размеры окна
             Console.BufferWidth = 65;
             Console.BufferHeight = 40;
            
-            Console.Title = "+====POKER+===+GAME====+";
+            Console.Title = "Poker Classic";
+            Console.OutputEncoding = Encoding.UTF8;
             DealCards dc = new DealCards();
             bool quit = false;
 

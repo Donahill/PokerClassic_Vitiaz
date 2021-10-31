@@ -8,7 +8,7 @@ namespace Poker
 {
     public enum Hand { 
     
-        Nothing,
+        HighCard,
         OnePair,
         TwoPairs,
         Triple,
@@ -88,7 +88,7 @@ namespace Poker
                 return Hand.OnePair;
             //если ничего нет, то игрок с самой большей картой побеждает
             handValue.HighCard = (int)cards[4].MyValue;
-            return Hand.Nothing;
+            return Hand.HighCard;
 
         }
 
