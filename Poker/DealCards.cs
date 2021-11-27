@@ -21,13 +21,146 @@ namespace Poker
         
         }
 
-        public void Deal() {
-
+        public void Deal(ref Bets bets) {
+            if (bets.Chips < 40)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("\nSorry. You don't have enough chips to start! \n");
+                return;
+            }
+            bets.MinimumBet = 20;
+            bets.Bet = 0;
+            bets.AddBet(bets.MinimumBet); //Small Blind
             setUpDeck(); //создаём колоду карт и перемешиваем её
             getHand();
             sortCards();
+            //System.Threading.Thread.Sleep(400);
+            displayCards_Turn();
+            bets.ShowChips();
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Write("\n\n Your decision?\n");
+            int number = 0;
+
+            Console.Write(" Call - 1.\n");
+            Console.Write(" Raise - 2.\n");
+            Console.Write(" Fold - 3.\n");
+            do
+            {
+                number = Convert.ToInt32(Console.ReadLine());
+
+
+                switch (number)
+                {
+
+                    case 1:
+                        bets.AddBet(bets.MinimumBet);
+
+                        break;
+                        
+                    case 2:
+                        int bet = 0;
+                        do
+                        {
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write("\nEnter your bet: ");
+                            bet = Convert.ToInt32(Console.ReadLine());
+                            if ((bet > bets.Chips - bet) || (bet <= bets.MinimumBet))
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write("\nInvalid bet! ");
+                            }
+                        } while ((bet > bets.Chips - bet) || (bet <= bets.MinimumBet));
+
+                        bets.AddBet(bet);
+                        bets.MinimumBet = bet;
+
+                        break;
+
+                    case 3:
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.WriteLine("\nPLAYER FOLD");
+                        Console.WriteLine("COMPUTER WINS");
+                        return;
+
+
+                    default:
+                        if ((number < 1) || (number > 3))
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            
+                            Console.Write("Invalid input!\n");
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            
+                        }
+                        break;
+                }
+            } while ((number < 1) || (number > 3));
+            //System.Threading.Thread.Sleep(400);
+            displayCards_River();
+            bets.ShowChips();
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Write("\n\n Your decision?\n");
+            number = 0;
+
+            Console.Write(" Call - 1.\n");
+            Console.Write(" Raise - 2.\n");
+            Console.Write(" Fold - 3.\n");
+            do
+            {
+                number = Convert.ToInt32(Console.ReadLine());
+
+
+                switch (number)
+                {
+
+                    case 1:
+                        bets.AddBet(bets.MinimumBet);
+
+                        break;
+
+                    case 2:
+                        int bet = 0;
+                        do
+                        {
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write("\nEnter your bet: ");
+                            bet = Convert.ToInt32(Console.ReadLine());
+                            if ((bet > bets.Chips) || (bet <= bets.MinimumBet))
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write("\nInvalid bet! ");
+                            }
+                        } while ((bet > bets.Chips) || (bet <= bets.MinimumBet));
+
+                        bets.AddBet(bet);
+
+                        break;
+
+                    case 3:
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.WriteLine("\nPLAYER FOLD");
+                        Console.WriteLine("COMPUTER WINS");
+                        return;
+
+
+                    default:
+                        if ((number < 1) || (number > 3))
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+
+                            Console.Write("Invalid input!\n");
+                            Console.ForegroundColor = ConsoleColor.Black;
+
+                        }
+                        break;
+                }
+            } while ((number < 1) || (number > 3));
+            //System.Threading.Thread.Sleep(400);
             displayCards();
-            evaluateHands();
+            evaluateHands(ref bets);
+
             
         }
 
@@ -74,39 +207,107 @@ namespace Poker
             }
         }
 
-        public void displayCards() {
+        public void displayCards_Turn()
+        {
 
             Console.Clear();
             int x = 0; //х позиция курсора. Её мы перемещаем влево-вправо
-            int y = 1;// y позиция курсора. Её мы перемещаем вврех-вниз
+            int y = 1;// y позиция курсора. Её мы перемещаем вверх-вниз
+            Card hidden = new Card();
+            //отображаем руку компьютера
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("COMPUTER'S HAND");
+            for (int i = 0; i < 3; i++)
+            {
 
-            //отображаем руку игрока
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("PLAYER'S HAND");
-            for (int i = 0; i < 5; i++) {
-
-                DrawCards.DrawCard(sortedPlayerHand[i], x, y);
-                //DrawCards.DrawCardSuitValue(sortedPlayerHand[i], x, y);
+                DrawCards.DrawHiddenCard(hidden, x, y);
+                
                 x++;//движение вправо
             }
-            y = 15; //опускаем курсор, для того, чтобы карты компьютера вырисовывались ниже
+            y = 15; //опускаем курсор, для того, чтобы карты игрока вырисовывались ниже
+            
 
             x = 0;
             Console.SetCursorPosition(x, 13);
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("\nCOMPUTER'S HAND");
-            for (int i = 5; i < 10; i++)
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nPLAYER'S HAND");
+            for (int i = 0; i < 3; i++)
             {
-
-                DrawCards.DrawCard(sortedComputerHand[i - 5], x, y);
-              //  DrawCards.DrawCardSuitValue(sortedComputerHand[i-5], x, y);
+                DrawCards.DrawCard(playerHand[i], x, y);
+                
                 x++;//движение вправо
             }
 
 
         }
 
-        public void evaluateHands()
+        public void displayCards_River()
+        {
+
+            Console.Clear();
+            int x = 0; //х позиция курсора. Её мы перемещаем влево-вправо
+            int y = 1;// y позиция курсора. Её мы перемещаем вверх-вниз
+            Card hidden = new Card();
+            //отображаем руку компьютера
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("COMPUTER'S HAND");
+            for (int i = 0; i < 4; i++)
+            {
+
+                DrawCards.DrawHiddenCard(hidden, x, y);
+
+                x++;//движение вправо
+            }
+            y = 15; //опускаем курсор, для того, чтобы карты игрока вырисовывались ниже
+
+
+            x = 0;
+            Console.SetCursorPosition(x, 13);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nPLAYER'S HAND");
+            for (int i = 0; i < 4; i++)
+            {
+                DrawCards.DrawCard(playerHand[i], x, y);
+
+                x++;//движение вправо
+            }
+
+
+        }
+
+        public void displayCards() {
+
+            Console.Clear();
+            int x = 0; //х позиция курсора. Её мы перемещаем влево-вправо
+            int y = 1;// y позиция курсора. Её мы перемещаем вврех-вниз
+
+            //отображаем руку компьютера
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("COMUTER'S HAND");
+            for (int i = 0; i < 5; i++) {
+
+                DrawCards.DrawCard(sortedComputerHand[i], x, y);
+                
+                x++;//движение вправо
+            }
+            y = 15; //опускаем курсор, для того, чтобы карты игрока вырисовывались ниже
+
+            x = 0;
+            Console.SetCursorPosition(x, 13);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nPLAYER'S HAND");
+            for (int i = 5; i < 10; i++)
+            {
+
+                DrawCards.DrawCard(sortedPlayerHand[i - 5], x, y);
+              
+                x++;//движение вправо
+            }
+
+
+        }
+
+        public void evaluateHands(ref Bets bets)
         {
 
             //
@@ -118,14 +319,17 @@ namespace Poker
             Hand computerHand = computerHandEvaluator.EvaluateHand();
 
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("\n\nPlayer's Hand: " + playerHand);
-            Console.WriteLine("\nComputer's Hand: " + computerHand + "\n\n");
+            
+            Console.WriteLine("\nComputer's Hand: " + computerHand);
+            Console.WriteLine("\n\nPlayer's Hand: " + playerHand + "\n\n");
 
             //
             if (playerHand > computerHand) {
 
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("PLAYER WINS");
+                bets.Chips += (bets.Bet*2);
+
 
             }
             else if (playerHand < computerHand)
@@ -142,6 +346,7 @@ namespace Poker
                 {
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("PLAYER WINS");
+                    bets.Chips += (bets.Bet*2);
                 }
                 else if (playerHandEvaluator.HandValues.Total < computerHandEvaluator.HandValues.Total)
                 {
@@ -153,6 +358,7 @@ namespace Poker
                 {
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("PLAYER WINS");
+                    bets.Chips += (bets.Bet*2);
                 }
                 else if (playerHandEvaluator.HandValues.HighCard < computerHandEvaluator.HandValues.HighCard)
                 {
@@ -163,6 +369,7 @@ namespace Poker
                 {
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("DRAW, YOU BOTH LOSERS!");
+                    bets.Chips += (bets.Bet);
                 }
 
             }

@@ -1,0 +1,11 @@
+D:\projectsc\Poker\Poker\bin\Debug\Poker.exe
+D:\projectsc\Poker\Poker\bin\Debug\Poker.pdb
+D:\projectsc\Poker\Poker\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\projectsc\Poker\Poker\obj\x86\Debug\Poker.exe
+D:\projectsc\Poker\Poker\obj\x86\Debug\Poker.pdb
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\Poker\Poker\bin\Debug\Poker.exe
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\Poker\Poker\bin\Debug\Poker.pdb
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\Poker\Poker\obj\x86\Debug\Poker.csprojAssemblyReference.cache
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\Poker\Poker\obj\x86\Debug\Poker.csproj.CoreCompileInputs.cache
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\Poker\Poker\obj\x86\Debug\Poker.exe
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\Poker\Poker\obj\x86\Debug\Poker.pdb

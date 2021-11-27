@@ -103,6 +103,10 @@ namespace Poker
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
 
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
+
 
                 }
                 else if (card.MySuit == Card.SUIT.HEARTS)
@@ -161,6 +165,10 @@ namespace Poker
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
                 else if (card.MySuit == Card.SUIT.DIAMONDS)
                 {
@@ -218,6 +226,10 @@ namespace Poker
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
                 else if (card.MySuit == Card.SUIT.CLUBS)
                 {
@@ -275,6 +287,10 @@ namespace Poker
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
             }
             else if (card.MyValue == Card.VALUE.TEN)
@@ -335,6 +351,10 @@ namespace Poker
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
                 else if (card.MySuit == Card.SUIT.HEARTS)
                 {
@@ -392,6 +412,10 @@ namespace Poker
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
                 else if (card.MySuit == Card.SUIT.DIAMONDS)
                 {
@@ -449,6 +473,10 @@ namespace Poker
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
                 else if (card.MySuit == Card.SUIT.CLUBS)
                 {
@@ -506,6 +534,10 @@ namespace Poker
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
             }
             else if ((card.MyValue == Card.VALUE.JACK) || (card.MyValue == Card.VALUE.QUEEN)
@@ -573,6 +605,10 @@ namespace Poker
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
 
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
+
 
                 }
                 else if (card.MySuit == Card.SUIT.HEARTS)
@@ -636,6 +672,10 @@ namespace Poker
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
                 else if (card.MySuit == Card.SUIT.DIAMONDS)
                 {
@@ -698,6 +738,10 @@ namespace Poker
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
                 else if (card.MySuit == Card.SUIT.CLUBS)
                 {
@@ -760,52 +804,111 @@ namespace Poker
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write("\u2588");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
             }
+
         }
 
+        public static void DrawHiddenCard(Card card, int xcoor, int ycoor)
+        {
 
-                //рисуем значение карты и её масть внутри границ карты
-                /*public static void DrawCardSuitValue(Card card, int xcoor, int ycoor) {
+            Console.ForegroundColor = ConsoleColor.White;
 
-            Console.OutputEncoding = Encoding.UTF8;
-            char cardSuit = ' ';
             int x = xcoor * 12;
             int y = ycoor;
 
-            //кодируем каждый байт массива из CodePage437 в мастиевый номинал
-            //червы и бубни - красные, пики и кресты - чёрные;
+            Console.SetCursorPosition(x, y);
 
-            switch(card.MySuit) {
+            Console.OutputEncoding = Encoding.UTF8;
 
-                case Card.SUIT.HEARTS:
-                    cardSuit = Encoding.GetEncoding(437).GetChars(new byte[] { 3 })[0];
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    break;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("\u2593\u2593\u2593\u2593\u2593\u2593\u2593");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Write("\u2588\n");
+            Console.SetCursorPosition(x, y + 1);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("\u2593\u2593\u2593\u2593\u2593\u2593\u2593");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Write("\u2588\n");
+            Console.SetCursorPosition(x, y + 2);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("\u2593\u2593\u2593\u2593\u2593\u2593\u2593");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Write("\u2588\n");
+            Console.SetCursorPosition(x, y + 3);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("\u2593\u2593\u2593\u2593\u2593\u2593\u2593");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Write("\u2588\n");
+            Console.SetCursorPosition(x, y + 4);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("\u2593\u2593\u2593\u2593\u2593\u2593\u2593");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Write("\u2588\n");
+            Console.SetCursorPosition(x, y + 5);
 
-                case Card.SUIT.DIAMONDS:
-                    cardSuit = Encoding.GetEncoding(437).GetChars(new byte[] { 4 })[0];
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    break;
 
-                case Card.SUIT.CLUBS:
-                    cardSuit = Encoding.GetEncoding(437).GetChars(new byte[] { 5 })[0];
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    break;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine();
+        }
 
-                case Card.SUIT.SPADES:
-                    cardSuit = Encoding.GetEncoding(437).GetChars(new byte[] { 6 })[0];
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    break;
-        }*/
+
+            //рисуем значение карты и её масть внутри границ карты
+            /*public static void DrawCardSuitValue(Card card, int xcoor, int ycoor) {
+
+        Console.OutputEncoding = Encoding.UTF8;
+        char cardSuit = ' ';
+        int x = xcoor * 12;
+        int y = ycoor;
+
+        //кодируем каждый байт массива из CodePage437 в мастиевый номинал
+        //червы и бубни - красные, пики и кресты - чёрные;
+
+        switch(card.MySuit) {
+
+            case Card.SUIT.HEARTS:
+                cardSuit = Encoding.GetEncoding(437).GetChars(new byte[] { 3 })[0];
+                Console.ForegroundColor = ConsoleColor.Red;
+                break;
+
+            case Card.SUIT.DIAMONDS:
+                cardSuit = Encoding.GetEncoding(437).GetChars(new byte[] { 4 })[0];
+                Console.ForegroundColor = ConsoleColor.Red;
+                break;
+
+            case Card.SUIT.CLUBS:
+                cardSuit = Encoding.GetEncoding(437).GetChars(new byte[] { 5 })[0];
+                Console.ForegroundColor = ConsoleColor.Black;
+                break;
+
+            case Card.SUIT.SPADES:
+                cardSuit = Encoding.GetEncoding(437).GetChars(new byte[] { 6 })[0];
+                Console.ForegroundColor = ConsoleColor.Black;
+                break;
+    }*/
 
             //отобразить закодированный символ и номинал карты
-            
-            //Console.SetCursorPosition(x+5, y+5);
-          //  Console.Write(cardSuit);
-           // Console.SetCursorPosition(x+4, y+7);
-           // Console.Write(card.MyValue);
-        //}
 
-    }
+            //Console.SetCursorPosition(x+5, y+5);
+            //  Console.Write(cardSuit);
+            // Console.SetCursorPosition(x+4, y+7);
+            // Console.Write(card.MyValue);
+            //}
+
+        }
 }

@@ -1,0 +1,24 @@
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\HW3 (Litvinenko, Philipskih, Donchick)\PokerClassic v1.1\Poker\bin\Debug\Poker.exe
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\HW3 (Litvinenko, Philipskih, Donchick)\PokerClassic v1.1\Poker\bin\Debug\Poker.pdb
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\HW3 (Litvinenko, Philipskih, Donchick)\PokerClassic v1.1\Poker\obj\x86\Debug\PokerClassic.csprojAssemblyReference.cache
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\HW3 (Litvinenko, Philipskih, Donchick)\PokerClassic v1.1\Poker\obj\x86\Debug\PokerClassic.csproj.CoreCompileInputs.cache
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\HW3 (Litvinenko, Philipskih, Donchick)\PokerClassic v1.1\Poker\obj\x86\Debug\Poker.exe
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\HW3 (Litvinenko, Philipskih, Donchick)\PokerClassic v1.1\Poker\obj\x86\Debug\Poker.pdb
+C:\Users\Acer\Downloads\Telegram Desktop\PokerClassic v1.1 (5)\PokerClassic v1.1\Poker\bin\Debug\Poker.exe
+C:\Users\Acer\Downloads\Telegram Desktop\PokerClassic v1.1 (5)\PokerClassic v1.1\Poker\bin\Debug\Poker.pdb
+C:\Users\Acer\Downloads\Telegram Desktop\PokerClassic v1.1 (5)\PokerClassic v1.1\Poker\obj\x86\Debug\PokerClassic.csprojAssemblyReference.cache
+C:\Users\Acer\Downloads\Telegram Desktop\PokerClassic v1.1 (5)\PokerClassic v1.1\Poker\obj\x86\Debug\PokerClassic.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Downloads\Telegram Desktop\PokerClassic v1.1 (5)\PokerClassic v1.1\Poker\obj\x86\Debug\Poker.exe
+C:\Users\Acer\Downloads\Telegram Desktop\PokerClassic v1.1 (5)\PokerClassic v1.1\Poker\obj\x86\Debug\Poker.pdb
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\PokerClassic v1.1\Poker\bin\Debug\Poker.exe
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\PokerClassic v1.1\Poker\bin\Debug\Poker.pdb
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\PokerClassic v1.1\Poker\obj\x86\Debug\PokerClassic.csprojAssemblyReference.cache
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\PokerClassic v1.1\Poker\obj\x86\Debug\PokerClassic.csproj.CoreCompileInputs.cache
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\PokerClassic v1.1\Poker\obj\x86\Debug\Poker.exe
+S:\Мои документы\Мои файлы\itstep\Командный проект и управление командными проектами\PokerClassic v1.1\Poker\obj\x86\Debug\Poker.pdb
+D:\source\repos\CS\PokerClassic v1.5\Poker\bin\Debug\Poker.exe
+D:\source\repos\CS\PokerClassic v1.5\Poker\bin\Debug\Poker.pdb
+D:\source\repos\CS\PokerClassic v1.5\Poker\obj\x86\Debug\PokerClassic.csprojAssemblyReference.cache
+D:\source\repos\CS\PokerClassic v1.5\Poker\obj\x86\Debug\PokerClassic.csproj.CoreCompileInputs.cache
+D:\source\repos\CS\PokerClassic v1.5\Poker\obj\x86\Debug\Poker.exe
+D:\source\repos\CS\PokerClassic v1.5\Poker\obj\x86\Debug\Poker.pdb
