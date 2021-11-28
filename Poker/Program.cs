@@ -94,8 +94,8 @@ namespace Poker
             Console.OutputEncoding = Encoding.UTF8;
 
             MyMenu menu = new MyMenu();
-            menu.Add("Play Game               ", (obj) => PlayGame());
-            menu.Add("Exit               ", (obj) => Exit());
+            menu.Add("Play Game                         ", (obj) => PlayGame());
+            menu.Add("Exit                            ", (obj) => Exit());
 
             menu.Show();
 

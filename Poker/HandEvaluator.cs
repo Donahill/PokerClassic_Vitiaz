@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace Poker
 {
-    public enum Hand { 
-    
+    public enum Hand {
+
         HighCard,
-        OnePair,
+        Pair,
         TwoPairs,
-        Triple,
+        ThreeOfAKind,
         Straight,
-        Flash,
+        Flush,
         FullHouse,
-        Kare
+        FourOfAKind,
+        StraightFlush,
+        FlushRoyal
 
     }
 
@@ -68,24 +70,28 @@ namespace Poker
             }
         }
 
-        public Hand EvaluateHand() { 
-        
+        public Hand EvaluateHand() {
+
             //получить количество каждой масти в руке
             getNumberOfSuit();
-            if (Kare())
-                return Hand.Kare;
+            if (FlushRoyal())
+                return Hand.FlushRoyal;
+            else if (StraightFlush())
+                return Hand.StraightFlush;
+            else if (FourOfAKind())
+                return Hand.FourOfAKind;
             else if (FullHouse())
                 return Hand.FullHouse;
-            else if (Flash())
-                return Hand.Flash;
+            else if (Flush())
+                return Hand.Flush;
             else if (Straight())
                 return Hand.Straight;
-            else if (Triple())
-                return Hand.Triple;
+            else if (ThreeOfAKind())
+                return Hand.ThreeOfAKind;
             else if (TwoPairs())
                 return Hand.TwoPairs;
-            else if (OnePair())
-                return Hand.OnePair;
+            else if (Pair())
+                return Hand.Pair;
             //если ничего нет, то игрок с самой большей картой побеждает
             handValue.HighCard = (int)cards[4].MyValue;
             return Hand.HighCard;
@@ -107,8 +113,43 @@ namespace Poker
             }
         }
 
-        private bool Kare() { 
-        
+        private bool FlushRoyal()
+        {
+
+            //должно быть пять карт одной масти по порядку номиналов
+            if ((heartSum == 5 || diamondSum == 5 || clubSum == 5 || spadeSum == 5) && ((cards[0].MyValue + 1 == cards[1].MyValue) &&
+                (cards[1].MyValue + 1 == cards[2].MyValue) &&
+                (cards[2].MyValue + 1 == cards[3].MyValue) &&
+                (cards[3].MyValue + 1 == cards[4].MyValue)) && (cards[4].MyValue == VALUE.ACE))
+            {
+                //естественно, что у кого последняя карта в руке(или любая другая во время флеша) выше - тот и выиграл
+                handValue.Total = (int)cards[4].MyValue;
+                return true;
+            }
+            else return false;
+
+        }
+
+        private bool StraightFlush()
+        {
+
+            //должно быть пять карт одной масти по порядку номиналов
+            if ((heartSum == 5 || diamondSum == 5 || clubSum == 5 || spadeSum == 5) && ((cards[0].MyValue + 1 == cards[1].MyValue) &&
+                (cards[1].MyValue + 1 == cards[2].MyValue) &&
+                (cards[2].MyValue + 1 == cards[3].MyValue) &&
+                (cards[3].MyValue + 1 == cards[4].MyValue)))
+            {
+                //естественно, что у кого последняя карта в руке(или любая другая во время флеша) выше - тот и выиграл
+                handValue.Total = (int)cards[4].MyValue;
+                return true;
+            }
+            else return false;
+
+        }
+
+        private bool FourOfAKind()
+        {
+
             //если есть 4 одинаковые карты, добавим наминалы этих карт и последняя будет считаться по принципу старшенства
             if (cards[0].MyValue == cards[1].MyValue && cards[0].MyValue == cards[2].MyValue && cards[0].MyValue == cards[3].MyValue)
             {
@@ -146,7 +187,7 @@ namespace Poker
 
         }
 
-        private bool Flash(){
+        private bool Flush(){
 
             //должно быть пять карт одной масти
             if (heartSum == 5 || diamondSum == 5 || clubSum == 5 || spadeSum == 5)
@@ -175,8 +216,9 @@ namespace Poker
 
         }
 
-        private bool Triple() { 
-        
+        private bool ThreeOfAKind()
+        {
+
             //если 1,2,3 карты одного номинала или если 2,3,4 карты одного номинала, или если 3,4,5 карты одного номинала
             //третья карта - всегда часть тройки
             if ((cards[0].MyValue == cards[1].MyValue && cards[0].MyValue == cards[2].MyValue) ||
@@ -230,8 +272,9 @@ namespace Poker
             else return false;
 
         }
-        private bool OnePair() {
-        
+        private bool Pair()
+        {
+
             //две карты одного номинала 1,2 или 2,3 или 3,4 или 4,5
 
             if (cards[0].MyValue == cards[1].MyValue)
@@ -269,6 +312,6 @@ namespace Poker
             else return false;
 
         }
-        
+
     }
 }

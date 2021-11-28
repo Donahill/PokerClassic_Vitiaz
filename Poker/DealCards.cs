@@ -22,7 +22,7 @@ namespace Poker
         }
 
         public void Deal(ref Bets bets) {
-            if (bets.Chips < 40)
+            if (bets.Chips < 60)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("\nSorry. You don't have enough chips to start! \n");
@@ -47,7 +47,14 @@ namespace Poker
             Console.Write(" Fold - 3.\n");
             do
             {
-                number = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    number = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
 
 
                 switch (number)
@@ -64,7 +71,14 @@ namespace Poker
                         {
                             Console.ForegroundColor = ConsoleColor.Black;
                             Console.Write("\nEnter your bet: ");
-                            bet = Convert.ToInt32(Console.ReadLine());
+                            try
+                            {
+                                bet = Convert.ToInt32(Console.ReadLine());
+                            }
+                            catch (FormatException e)
+                            {
+                                Console.WriteLine(e.Message);
+                            }
                             if ((bet > bets.Chips - bet) || (bet <= bets.MinimumBet))
                             {
                                 Console.ForegroundColor = ConsoleColor.Red;
@@ -109,8 +123,14 @@ namespace Poker
             Console.Write(" Fold - 3.\n");
             do
             {
-                number = Convert.ToInt32(Console.ReadLine());
-
+                try
+                {
+                    number = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
 
                 switch (number)
                 {
@@ -126,7 +146,14 @@ namespace Poker
                         {
                             Console.ForegroundColor = ConsoleColor.Black;
                             Console.Write("\nEnter your bet: ");
-                            bet = Convert.ToInt32(Console.ReadLine());
+                            try
+                            {
+                                bet = Convert.ToInt32(Console.ReadLine());
+                            }
+                            catch (FormatException e)
+                            {
+                                Console.WriteLine(e.Message);
+                            }
                             if ((bet > bets.Chips) || (bet <= bets.MinimumBet))
                             {
                                 Console.ForegroundColor = ConsoleColor.Red;
